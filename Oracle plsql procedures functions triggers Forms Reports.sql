@@ -39,4 +39,35 @@ alter table cliente drop column cl_email;
 describe cliente;
 alter table cliente add cl_salario numeric (10,2);
 alter table cliente rename column cl_salario to cl_renda;
+update cliente set cl_renda = 5000 where cl_codigo in (3);
+
+-- # Funções de agregaçao
+select avg(cl_renda) as media_salario from cliente;
+select sum(cl_renda) as soma_salarios from cliente;
+select count(cl_codigo) from cliente;
+select count(*) from cliente;
+select count(*) from cliente where cl_sexo = 'F';
+select min(cl_renda) from cliente;
+select max(cl_renda) from cliente;
+select upper(cl_nome), c.* from cliente c;
+select lower(cl_nome), c.* from cliente c;
+select cl_nome ||' '|| cl_renda as Nome_renda from cliente;
+create index i_nm_cliente on cliente(cl_nome);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
